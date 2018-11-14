@@ -17,14 +17,14 @@ import './input.css'
 class Input extends React.Component {
     constructor(props){
         super(props)
-        this.state={ message : false }
+        this.state={ message : null }
         //this.handleChange = this.handleChange.bind(this)
     }
     hasError = () => {
         if(this.state.message === null || this.state.message !== '' ){
-            return false
-        }else {
             return true
+        }else {
+            return false
         }
     }
 
@@ -36,12 +36,12 @@ class Input extends React.Component {
         
         if(this.props.required && value.trim() === '') {
             message = 'Campo Obrigatório'
-        } else if(this.props.minLength && value.length < this.props.minLength){
+        } else if(value && this.props.minLength && value.length < (this.props.minLength)){
             message = `Digite pelo menos ${this.props.minLength} caracteres`
         }else if(this.props.type === 'email' && !regex.test(value)){
             message = `Digite um email válido`
         }
-        this.setState({ message : message },this.props.onChange())
+        this.setState({ message : message },this.props.onChange)
     return
     }
 
@@ -55,7 +55,8 @@ class Input extends React.Component {
                     id={this.props.id}
                     className='input'
                     placeholder={this.props.placeholder}  
-                    required={this.props.required}      
+                    required={this.props.required}
+                    
                 />
                 <p className='input__erro'>{this.state.message}</p>
             </React.Fragment>

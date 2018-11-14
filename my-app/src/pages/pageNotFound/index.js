@@ -1,3 +1,3 @@
-import page404 from './page404'
+import NotFound from './pageNotFound'
 
-export default page404
+export default NotFound

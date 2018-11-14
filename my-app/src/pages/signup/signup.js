@@ -62,7 +62,7 @@ class Signup extends React.Component {
                 <Form.Input ref={this.password} id='password' type='password' placeholder='Mínimo de 6 caracteres' onChange={this.onDisabledButton} minLength={6} required/>
                 <Form.Button disabled={this.state.disabled}>Enviar</Form.Button>
         
-                <Form.Link href='#'>Faça Login</Form.Link>     
+                <Form.Link href='/login'>Faça Login</Form.Link>     
             </Form>
         </Container>
         )}

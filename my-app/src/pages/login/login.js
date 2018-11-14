@@ -47,7 +47,7 @@ class Login extends React.Component {
                 <Form.Label htmlFor='password'>Password</Form.Label>
                 <Form.Input ref={this.password}id='password' type='password' placeholder='Password' minLength={6} onChange={this.onDisabledButton} required/>
                 <Form.Button disabled={this.state.disabled}>Enviar</Form.Button>
-                <Form.Link href='#'>Criar uma conta</Form.Link>     
+                <Form.Link href='/conta'>Criar uma conta</Form.Link>     
             </Form>
         </Container>
         )

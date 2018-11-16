@@ -8,4 +8,3 @@ storiesOf('Components/Navbar', module)
     .add('default', () =>(
         <Navbar />
     ))
-// comentario teste

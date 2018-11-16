@@ -4,5 +4,8 @@ import Button from './button'
 
 storiesOf('Components/Form/Button', module) 
     .add('default', () =>(
-        <Button>Teste</Button>
+        <Button>Children Here</Button>
+    ))
+    .add('with disabled', () => (
+        <Button disabled> Children Here</Button>
     ))

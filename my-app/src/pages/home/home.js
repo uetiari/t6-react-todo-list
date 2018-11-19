@@ -6,6 +6,14 @@ class Home extends React.Component {
     constructor(){
         super ()
     }
+    
+    componentDidMount () {
+        console.log('Hello ConponentDidMount foi criado :)')
+    }
+    componentWillUnmout() {
+        console.log('Heloo componentWillUnmout morreu :(')
+    }
+
     render(){
         if(getUser()){
             return <div> Hello!</div>
@@ -14,5 +22,4 @@ class Home extends React.Component {
         }
     }
 }
-
 export default Home

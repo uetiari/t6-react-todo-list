@@ -2,6 +2,7 @@ import React from 'react';
 import Form from '../../components/form'
 import Container from '../../components/container'
 import { setUser } from '../../infraestrutura/local-storage'
+import { loginUser } from '../../apis/login.api'
 
 // function Login(){
 //     return (
@@ -48,7 +49,17 @@ class Login extends React.Component {
         const user = {
             email : inputEmail.getValue(),
             password : inputPassword.getValue()
-        }
+            }
+ 
+        loginUser(user)
+        .then((response) =>  {
+            setUser(user)
+            this.props.history.push('/')
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
         setUser(user)
         this.props.history.push('/')
     }

@@ -1,6 +1,6 @@
 import api from '../infraestrutura/api-config'
 
-function loginUser(user){
+export function loginUser(user){
     const url = '/users/login'
 
     const data = {

@@ -7,12 +7,15 @@ const config = {
 }
 
 function api(){
+    config.headers = {
+        user: ''
+    }
     return axios.create(config)
 }
  
 export function startServer() {
     const url ='/ping'
-    api().get(url)
+    return api().get(url)
 }
 
 export default api

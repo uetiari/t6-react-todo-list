@@ -6,11 +6,13 @@ import Signup from './pages/signup'
 import Home from './pages/home'
 import Navbar from './components/navbar'
 import pageNotFound from './pages/pageNotFound'
+import { startServer } from './infraestrutura/api-config'
 
 //criando os caminhos das urls
 class App extends Component {
   render() {
-    return (
+    startServer()
+      return (
       <React.Fragment>
         <Navbar />
       <Switch>

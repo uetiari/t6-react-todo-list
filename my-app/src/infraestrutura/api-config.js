@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const config = {
-    baseUrl : 'https://lehtodoapi.herokuapp.com/',
+    baseURL : 'https://lehtodoapi.herokuapp.com/',
     timeout: 5000,
 }
 
@@ -15,5 +15,4 @@ export function startServer() {
     api().get(url)
 }
 
-startServer()
 export default api

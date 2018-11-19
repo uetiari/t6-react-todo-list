@@ -1,6 +1,10 @@
 import React from 'react';
 import Form from '../../components/form'
 import Container from '../../components/container'
+import { SignupUser } from '../../apis/signup.api'
+import { setUser } from '../../infraestrutura/local-storage'
+
+
 
 // function Signup(){
 //     return (
@@ -28,7 +32,7 @@ class Signup extends React.Component {
         this.state = { disabled : true }
         this.nome = React.createRef()
         this.email = React.createRef()
-        this.telefone = React.createRef()
+        this.phone = React.createRef()
         this.password = React.createRef()
 
     }
@@ -36,10 +40,10 @@ class Signup extends React.Component {
     onDisabledButton = () => {
         const inputNome = this.nome.current
         const inputEmail = this.email.current
-        const inputTelefone = this.telefone.current
+        const inputPhone = this.phone.current
         const inputPassword = this.password.current 
 
-        if(inputNome.hasError() || inputEmail.hasError() || inputTelefone.hasError() || inputPassword.hasError()) {
+        if(inputNome.hasError() || inputEmail.hasError() || inputPhone.hasError() || inputPassword.hasError()) {
             this.setState({ disabled : true })
         } else {
             this.setState({ disabled : false })
@@ -47,20 +51,45 @@ class Signup extends React.Component {
 
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault()
+
+        const inputName = this.nome.current
+        const inputEmail = this.email.current
+        const inputPhone = this.phone.current
+        const inputPassword = this.password.current
+
+        const user = {
+            name : inputName.getValue(),
+            email : inputEmail.getValue(),
+            phone : inputPhone.getValue(),
+            password : inputPassword.getValue()
+        }
+
+        SignupUser(user)
+        .then((response) => {
+            setUser({ email : user.email })
+            this.props.history.push('/')
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
+    }
 
     render() {
         return (
         <Container>
-            <Form title='Cadastro' text='Preencha com seus dados'>
+            <Form title='Cadastro' text='Preencha com seus dados' onSubmit={this.handleSubmit} >
                 <Form.Label htmlFor='nome'>Nome</Form.Label>
-                <Form.Input ref={this.nome} id='nome' type='text' placeholder='Nome' onChange={this.onDisabledButton} required/>
+                <Form.Input ref={this.nome} id='nome' type='text' placeholder='Nome' onChange={this.onDisabledButton} required />
                 <Form.Label htmlFor='email'>Email</Form.Label>
-                <Form.Input  ref={this.email} id='email' type='email' placeholder='Email' onChange={this.onDisabledButton} required/>
+                <Form.Input  ref={this.email} id='email' type='email' placeholder='Email' onChange={this.onDisabledButton} required  />
                 <Form.Label htmlFor='telefone'>Telefone</Form.Label>
-                <Form.Input ref={this.telefone} id='telefone' type='tel' placeholder='(__) _____-______' onChange={this.onDisabledButton} minLength={10} />
+                <Form.Input ref={this.phone} id='telefone' type='tel' placeholder='(__) _____-______' onChange={this.onDisabledButton} minLength={10} />
                 <Form.Label htmlFor='password'>Password</Form.Label>
-                <Form.Input ref={this.password} id='password' type='password' placeholder='Mínimo de 6 caracteres' onChange={this.onDisabledButton} minLength={6} required/>
-                <Form.Button disabled={this.state.disabled}>Enviar</Form.Button>
+                <Form.Input ref={this.password} id='password' type='password' placeholder='Mínimo de 6 caracteres' onChange={this.onDisabledButton} minLength={6} required />
+                <Form.Button disabled={this.state.disabled} >Enviar</Form.Button>
         
                 <Form.Link href='/login'>Faça Login</Form.Link>     
             </Form>
@@ -69,4 +98,4 @@ class Signup extends React.Component {
 }
 
 
-export default Signup 
+export default Signup

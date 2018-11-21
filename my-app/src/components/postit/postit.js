@@ -1,7 +1,7 @@
 import React from 'react'
 import './postit.css'
 import Form from '../form'
-
+import { createPostit } from '../../apis/postit.api'
 
 class Postit extends React.Component {
     constructor(props) {
@@ -31,6 +31,15 @@ class Postit extends React.Component {
             title: this.state.title,
             text: this.state.text
         }
+
+        createPostit(postit)
+        .then((response) =>  {
+            
+        })
+        .catch((error) => {
+            
+        })
+
     }
 
     setTitle = (e) => {

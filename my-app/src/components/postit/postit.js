@@ -11,9 +11,9 @@ class Postit extends React.Component {
             return (
                 <div className='postit'>
                     <Form>
-                        <Form.Input className='postit__title' placeholder='Título' />
+                        <input type='text' className='postit__title' placeholder='Título' />
                         <textarea className='postit__text' placeholder='Digite o texto' name='text' />
-                        <Form.Button className='postit__button-completed'> Concluído </Form.Button>
+                        <button className='postit__button-completed'> Concluído </button>
                     </Form>
                 </div>
             )

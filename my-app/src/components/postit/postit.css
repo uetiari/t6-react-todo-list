@@ -18,6 +18,7 @@
 .postit__button-remove {
     cursor: pointer;
     margin-left: auto;
+    float: right;
 }
 
 .postit__button-completed {

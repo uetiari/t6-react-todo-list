@@ -1,20 +1,23 @@
 import React from 'react'
-import Input from '../form/input'
+import Form from '../form'
 
-function Postit(props){
-    return (
-        <div className="postit">
-            <form>
-                <Input>
-                </Input>
-                <textarea>
-                </textarea>
-                <button>
-                </button>
-            </form>
-        </div>
-    )
+
+class Postit extends React.Component {
+    constructor(props){
+        super(props)
+        }
+        
+        render(){
+            return (
+                <div className='postit'>
+                    <Form>
+                        <Form.Input className='postit__title' placeholder='Título' />
+                        <textarea className='postit__text' placeholder='Digite o texto' name='text' />
+                        <Form.Button className='postit__button-completed'> Concluído </Form.Button>
+                    </Form>
+                </div>
+            )
+        }
 }
-
 
 

@@ -8,6 +8,10 @@ function Button(props) {
         classes += ' button--disabled'
     }
 
+    if (props.className) {
+        classes = props.className
+    }
+    
     return (
         <button disabled={props.disabled} className={classes}>
             {props.children}

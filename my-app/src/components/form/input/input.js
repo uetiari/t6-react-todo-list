@@ -51,12 +51,7 @@ class Input extends React.Component {
     return
     }
 
-    render() {
-        const classesInput = 'input'
-        if(this.props.className){
-            classesInput = this.props.className
-        }
-        
+    render() {  
         return (
             <React.Fragment>
                 <input 
@@ -64,7 +59,7 @@ class Input extends React.Component {
                     onBlur={this.handleChange}
                     type={this.props.type}
                     id={this.props.id}
-                    className={classesInput}
+                    className='input'
                     placeholder={this.props.placeholder}  
                     required={this.props.required}
                     

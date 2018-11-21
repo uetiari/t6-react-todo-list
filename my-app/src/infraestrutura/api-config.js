@@ -8,13 +8,12 @@ const config = {
 }
 
 function api(){
-    if(getUser()){
+
+    const user = getUser()
+    if(user){
         config.headers = {
-            user : getUser()
+            user : user   
         }
-    }
-    config.headers = {
-        user: ''
     }
     return axios.create(config)
 }

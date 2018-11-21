@@ -10,3 +10,9 @@ export function createPostit(postit){
 
     return api().post(url, data)
 }
+
+export function getPostitsApi(){
+    const url = '/todo'
+
+    return api().get(url)
+}

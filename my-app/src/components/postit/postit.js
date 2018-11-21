@@ -1,7 +1,7 @@
 import React from 'react'
 import './postit.css'
 import Form from '../form'
-import { createPostit } from '../../apis/postit.api'
+import { createPostit, getPostit } from '../../apis/postit.api'
 
 class Postit extends React.Component {
     constructor(props) {
@@ -39,6 +39,7 @@ class Postit extends React.Component {
         .catch((error) => {
             
         })
+
 
     }
 
